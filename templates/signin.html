@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Aplicació web amb base de dades (M02-UF3-AC4)</h1>
+    </header>
+    <main>
+        <div class="buttons">
+            <a href="{{url_for('login')}}"><button class="login">LOG IN</button></a>
+            <a href="{{url_for('home')}}"><button class="signin">SIGN IN</button></a>
+        </div>
+        <form action="{{ url_for('signin') }}" method="POST" class="formulario" style="margin-bottom: 50px;">
+            <h2>Crea tu Usuario</h2>
+            <input type="text" name="usuario" placeholder="login"/>
+            <input type="password" name="contrasena" placeholder="contraseña"/>
+            <input type="text" name="nombre" placeholder="nombre"/>
+            <input type="text" name="apellido" placeholder="apellido"/>
+            <input type="text" name="apellido2" placeholder="segundo apellido"/>
+            <input type="number" id="edad" name="edad" min="1" max="99" placeholder="Edad" required>
+            <select name="sexo" placeholder="Sexo">
+                <option value="H">Hombre</option>
+                <option value="D">Mujer</option>
+                <option value="NS/NC">NS/NC</option>
+            </select>
+            <input type="submit" value="Enviar">
+        </form>
+        
+    </main>
+    <footer>
+        <p>ETPX 2022-2023</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In Results</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Aplicació web amb base de dades (M02-UF3-AC4)</h1>
+    </header>
+    <main>
+        <div class="buttons">
+            <a href="{{url_for('login')}}"><button class="login">LOG IN</button></a>
+            <a href="{{url_for('signin')}}"><button class="signin">SIGN IN</button></a>
+        </div>
+
+{% if user_info %}
+  <p class="login_ok">LOGIN CORRECTO</p>
+  <h2>Log In Results</h2>
+  <h1>Bienvenido, {{ user_info['name'] }} {{ user_info['surname'] }}</h1>
+  <p>Usuario: {{ user_info['username'] }}</p>
+  <p>Contraseña: {{ user_info['password'] }}</p>
+  <p>Edad: {{ user_info['age'] }}</p>
+  <p>Sexo: {{ user_info['gender'] }}</p>
+{% else %}
+  <p class="login_ko">LOGIN INCORRECTO</p>
+{% endif %}
+
+    </main>
+    <footer>
+        <p>ETPX 2022-2023</p>
+    </footer>
+</body>
+</html>
